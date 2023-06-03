@@ -2,6 +2,10 @@
 
 This provides an easy way to install [Lemmy](https://github.com/LemmyNet/lemmy) on any server. It automatically sets up an nginx server, letsencrypt certificates, docker containers, pict-rs, and email smtp.
 
+This fork is designed to reduce the need for containers and uses distro packages where reasonably possible.
+
+It's tested only on Debian 11.
+
 ## Requirements
 
 To run this ansible playbook, you need to:
