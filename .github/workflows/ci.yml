@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - mine
+
+jobs:
+  check_ansible_format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: >-
+            3.11
+
+      - name: Install Ansible via pip
+        run: >-
+          python -m
+          pip install
+          --user
+          --upgrade
+          ansible
+
+      - name: Check lemmy.yml syntax
+        run: ansible-playbook lemmy.yml --syntax-check
+
+      - name: Check uninstall.yml syntax
+        run: ansible-playbook uninstall.yml --syntax-check
